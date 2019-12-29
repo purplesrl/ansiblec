@@ -8,12 +8,14 @@ RC=$HOME/.bashrc
 WORKDIR=$HOME/.ansible
 BINDIR=$WORKDIR/bin
 ETCDIR=$WORKDIR/etc
+PLAYDIR=$WORKDIR/play
 IMAGE=ansible-alpine
 
 # Creating dirs
 
 mkdir -p $BINDIR
 mkdir -p $ETCDIR
+mkdir -p $PLAYDIR
 
 # Building docker image
 
