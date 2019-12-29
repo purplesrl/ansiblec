@@ -31,11 +31,13 @@ cat << EOF > $BINDIR/ansible
 #!/usr/bin/env bash
 IMAGE="inductance/$IMAGE"
 DOCKER_ARGS="-v $KEY:/root/.ssh/id_rsa:ro -v $ETCDIR:/etc/ansible:ro -v \$SSH_AUTH_SOCK:/ssh-agent:ro -e SSH_AUTH_SOCK=/ssh-agent"
-BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-. "${BINDIR}/../containit/containit.sh"
+BIN_DIR="\$( cd "\$( dirname "\${BASH_SOURCE[0]}" )" && pwd )"
+. "\${BIN_DIR}/../containit/containit.sh"
 EOF
 
 chmod +x $BINDIR/ansible
+
+[ ! -f "$BINDIR/ansible-playbook" ] && ln -s $BINDIR/ansible $BINDIR/ansible-playbook
 
 # Adding path to runscript
 
