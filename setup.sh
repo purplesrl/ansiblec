@@ -34,6 +34,12 @@ cat << EOF > $BINDIR/ansible
 IMAGE="inductance/$IMAGE"
 DOCKER_ARGS="-v $KEY:/root/.ssh/id_rsa:ro -v $ETCDIR:/etc/ansible:ro -v \$SSH_AUTH_SOCK:/ssh-agent:ro -e SSH_AUTH_SOCK=/ssh-agent"
 BIN_DIR="\$( cd "\$( dirname "\${BASH_SOURCE[0]}" )" && pwd )"
+WORKDIR=\${BIN_DIR/\/bin}
+PWD=\`pwd\`
+if [[ \$PWD != \$WORKDIR* ]]; then
+	echo -e "\e[31mError: You need to run the command from \$WORKDIR or a subdirectory\e[0m"
+	exit 0
+fi
 . "\${BIN_DIR}/../containit/containit.sh"
 EOF
 
