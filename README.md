@@ -23,4 +23,4 @@ If you want to use other commands from the container, just create new links:
 
 # Caveat 
 
-You need to store your playbooks, configurations, hosts in subfolders of the working directory.
+You need to store your playbooks in subfolders of the working directory.
