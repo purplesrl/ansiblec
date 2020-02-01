@@ -3,6 +3,7 @@
 # Setting up vars
 
 VERSION=1.0.0
+ANSIBLE_VERSION=2.8.5
 KEY=$HOME/.ssh/id_rsa
 RC=$HOME/.bashrc
 WORKDIR=$HOME/.ansible
@@ -19,7 +20,7 @@ mkdir -p $PLAYDIR
 
 # Building docker image
 
-docker build -t inductance/$IMAGE .
+docker build --build-arg ANSIBLE_VERSION=$ANSIBLE_VERSION -t inductance/$IMAGE .
 docker tag inductance/$IMAGE inductance/$IMAGE:$VERSION
 docker tag inductance/$IMAGE:$VERSION inductance/$IMAGE:latest
 
