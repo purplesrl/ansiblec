@@ -2,7 +2,7 @@
 
 # Setting up vars
 
-VERSION=1.0.1
+VERSION=1.0.2
 ANSIBLE_VERSION=2.8.5
 KEY=$HOME/.ssh/id_rsa
 RC=$HOME/.bashrc
