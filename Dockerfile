@@ -7,7 +7,7 @@ ARG ANSIBLE_VERSION
 RUN apk --update upgrade && \
     apk add --no-cache python3-dev py3-pip libffi-dev openssl-dev build-base openssh-client sshpass && \
     pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir paramiko winrm ansible==$ANSIBLE_VERSION
+    pip3 install --no-cache-dir paramiko pywinrm ansible==$ANSIBLE_VERSION
 
 # Cleanup
 
